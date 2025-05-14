@@ -89,7 +89,7 @@ const LoginPage: React.FC = () => {
         backgroundImage: `url(${bgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: "100%",
+        height: "100vh",
       }}
     >
       <div
