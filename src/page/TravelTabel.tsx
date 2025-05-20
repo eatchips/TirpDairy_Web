@@ -20,14 +20,12 @@ interface TravelTableProps {
   data: TravelNote[];
   loading: boolean;
   onDataChange: () => void;
-  userData: { username: string; role: number; [key: string]: any } | null;
 }
 
 const TravelTable: React.FC<TravelTableProps> = ({
   data = [],
   loading,
   onDataChange,
-  userData,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentRow, setCurrentRow] = useState<TravelNote | null>(null);
@@ -180,16 +178,17 @@ const TravelTable: React.FC<TravelTableProps> = ({
     },
     {
       title: "创建时间",
-      dataIndex: "createTime",
+      dataIndex: "publishTime",
       key: "createTime",
       width: 150,
       render: (text) => new Date(text).toLocaleString(),
     },
     {
       title: "作者",
-      dataIndex: "author",
+      dataIndex: "userInfo",
       key: "author",
       width: 100,
+      render: (userInfo) => userInfo?.username || "-",
     },
     {
       title: "操作",

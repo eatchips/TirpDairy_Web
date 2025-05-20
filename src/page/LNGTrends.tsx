@@ -49,6 +49,7 @@ const LNGTrends: React.FC = () => {
       if (!response.ok) throw new Error("Network response was not ok");
 
       const result = await response.json();
+
       setTravelNotes(result.result);
       setTotal(result.total);
     } catch (error) {
