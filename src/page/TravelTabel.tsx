@@ -185,10 +185,16 @@ const TravelTable: React.FC<TravelTableProps> = ({
     },
     {
       title: "作者",
-      dataIndex: "userInfo",
+      dataIndex: "username",
       key: "author",
       width: 100,
-      render: (userInfo) => userInfo?.username || "-",
+      render: (username) => {
+        // 确保 username 是字符串类型
+        if (username === null || username === undefined) {
+          return "-";
+        }
+        return String(username);
+      },
     },
     {
       title: "操作",

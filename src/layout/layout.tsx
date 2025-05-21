@@ -16,17 +16,25 @@ function BasicUsage(props: MenuProps) {
     setActive(info.key as string);
   };
 
+  // 定义菜单项
+  const menuItems = [
+    {
+      key: "",
+      icon: <DashboardOutlined />,
+      label: "游记管理",
+    },
+  ];
+
   return (
-    <Menu
-      selectedKeys={[active]}
-      onClick={menuChange}
-      mode="inline"
-      theme="dark"
-      {...props}
-    >
-      <Menu.Item key="" icon={<DashboardOutlined />}>
-        游记管理
-      </Menu.Item>
+    <>
+      <Menu
+        selectedKeys={[active]}
+        onClick={menuChange}
+        mode="inline"
+        theme="dark"
+        items={menuItems}
+        {...props}
+      />
       <div
         className="flex justify-center items-center space-x-2 mt-4 cursor-pointer"
         onClick={() => {
@@ -42,7 +50,7 @@ function BasicUsage(props: MenuProps) {
         <RollbackOutlined />
         <span>退出登录</span>
       </div>
-    </Menu>
+    </>
   );
 }
 
